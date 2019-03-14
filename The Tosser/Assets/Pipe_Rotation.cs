@@ -66,6 +66,7 @@ public class Pipe_Rotation : MonoBehaviour {
     public void LeftButton ()
     {
         self.transform.Rotate(0, -22.5f, 0);
+        
     }
 
     public void RightButton ()

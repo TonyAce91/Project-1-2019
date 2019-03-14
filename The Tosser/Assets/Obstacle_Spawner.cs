@@ -14,6 +14,8 @@ public class Obstacle_Spawner : MonoBehaviour {
     public float backupDifficulty;
     //The array for obstacles to spawn
     public GameObject[] obstacles;
+    public int[] obstacleChances;
+    public GameObject[] spawners;
     public bool BeatMode = false;
     public bool inBeat;
     public int counter;
@@ -26,8 +28,36 @@ public class Obstacle_Spawner : MonoBehaviour {
         self = gameObject;
 	}
 	
-	// Update is called once per frame
-	void FixedUpdate ()
+    
+
+    void SpiralSpawn ()
+    {
+        
+        Instantiate(obstacles[0], spawners[0].transform);
+       
+        Instantiate(obstacles[0], spawners[1].transform);
+
+        Instantiate(obstacles[0], spawners[2].transform);
+
+        Instantiate(obstacles[0], spawners[3].transform);
+
+        Instantiate(obstacles[0], spawners[4].transform);
+
+        Instantiate(obstacles[0], spawners[5].transform);
+
+        Instantiate(obstacles[0], spawners[6].transform);
+
+        
+        Debug.Log("HYPERWALL");
+    }
+
+    //IEnumerator SpiralWait ()
+    //{
+        
+    //}
+
+    // Update is called once per frame
+    void FixedUpdate ()
     {
         //Checks if the spawner is activated
         if (spawnerOn == true)
@@ -47,13 +77,23 @@ public class Obstacle_Spawner : MonoBehaviour {
                 {
                     //Picks which obstacle to spawn
                     int whichOne = Random.Range(1, 10);
-                    if (whichOne <= 8)
+                    int whichSpawner = Random.Range(0, 7);
+                    if (whichOne <= 7)
                     {
-                        Instantiate(obstacles[0], self.transform);
+                        Instantiate(obstacles[0], spawners[whichSpawner].transform);
+
                     }
-                    if (whichOne > 8)
+                    if (whichOne > 7 && whichOne < 10)
                     {
-                        Instantiate(obstacles[1], self.transform);
+                        Instantiate(obstacles[1], spawners[whichSpawner].transform);
+                    }
+                    if (whichOne >= 9)
+                    {
+                        if (difficultyIncrementer > 3)
+                        {
+                            SpiralSpawn();
+                        }
+                        
                     }
                 }
             }
