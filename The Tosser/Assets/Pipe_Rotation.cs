@@ -23,6 +23,7 @@ public class Pipe_Rotation : MonoBehaviour {
 	void FixedUpdate ()
     {
         //Using the left and right arrows to turn the whole tunnel
+        
         if (isAndroid == false)
         {
             if (Input.GetKey(KeyCode.LeftArrow))
@@ -35,8 +36,10 @@ public class Pipe_Rotation : MonoBehaviour {
             }
             
         }
+        //Checks if using Android control schemes
         if (isAndroid == true)
         {
+            //Checks if using the accelerometer, and which "version". This one doesn't work.
             if (accelOptions == true)
             {
                 if (Input.acceleration.x > 0)
@@ -48,6 +51,7 @@ public class Pipe_Rotation : MonoBehaviour {
                     self.transform.Rotate(0, -rotateForce, 0);
                 }
             }
+            //The version that actually works
             if (accelOptions == false)
             {
                 self.transform.Rotate(0, Input.acceleration.x * rotateForce, 0);
@@ -58,6 +62,7 @@ public class Pipe_Rotation : MonoBehaviour {
 
     }
 
+    //For left-click and right-click, turns tunnel 1/8th. To be used for touch-screen
     public void LeftButton ()
     {
         self.transform.Rotate(0, -22.5f, 0);

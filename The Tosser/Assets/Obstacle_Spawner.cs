@@ -29,17 +29,23 @@ public class Obstacle_Spawner : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate ()
     {
+        //Checks if the spawner is activated
         if (spawnerOn == true)
         {
+            //"Beat Mode" is for trying to making obstacles sync with the "beat" generated. Currently broken.
             if (BeatMode == false)
             {
+                //Generates a number between 1 and the spawn chance, and makes it more likely to succeed the spawn chance by adding the difficulty number
                 willItSpawn = Random.Range(1.0f, spawnChance + difficultyIncrementer);
                 if (difficultyOn)
                 {
+                    //Makes difficulty get harder by exponentially increasing the difficulty number each tick.
                     difficultyIncrementer += (difficultyIncrementer / 100) * Time.deltaTime;
                 }
+                //
                 if (willItSpawn >= spawnChance)
                 {
+                    //Picks which obstacle to spawn
                     int whichOne = Random.Range(1, 10);
                     if (whichOne <= 8)
                     {
