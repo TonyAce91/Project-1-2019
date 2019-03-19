@@ -8,7 +8,7 @@ public class Pipe_Rotation : MonoBehaviour {
     GameObject self;
     public float rotateForce;
     public bool isAndroid;
-    public bool accelOptions;
+    public bool touchOn;
     public Button leftButton;
     public Button rightButton; 
 
@@ -40,19 +40,35 @@ public class Pipe_Rotation : MonoBehaviour {
         if (isAndroid == true)
         {
             //Checks if using the accelerometer, and which "version". This one doesn't work.
-            if (accelOptions == true)
+            if (touchOn == true)
             {
-                if (Input.acceleration.x > 0)
+                if (Input.touchCount > 0)
                 {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        Debug.Log("" + Input.mousePosition);
+                    }
                     self.transform.Rotate(0, -rotateForce, 0);
+                    Touch touch = Input.GetTouch(0);
+                    Debug.Log("" + touch.position.x);
+                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                    touchPosition.z = 0;
+                    
+
+
+                   
                 }
-                if (Input.acceleration.x < 0)
-                {
-                    self.transform.Rotate(0, -rotateForce, 0);
-                }
+                //if (Input.acceleration.x > 0)
+                //{
+                //    self.transform.Rotate(0, -rotateForce, 0);
+                //}
+                //if (Input.acceleration.x < 0)
+                //{
+                //    self.transform.Rotate(0, -rotateForce, 0);
+                //}
             }
             //The version that actually works
-            if (accelOptions == false)
+            if (touchOn == false)
             {
                 self.transform.Rotate(0, Input.acceleration.x * rotateForce, 0);
 

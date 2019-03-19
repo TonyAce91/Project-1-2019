@@ -2257,7 +2257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1059080004
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2912,7 +2912,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1194453658
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5061,6 +5061,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateForce: 6
   isAndroid: 1
-  accelOptions: 0
+  touchOn: 0
   leftButton: {fileID: 1059080005}
   rightButton: {fileID: 1194453659}
