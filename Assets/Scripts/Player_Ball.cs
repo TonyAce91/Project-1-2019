@@ -9,7 +9,8 @@ public class Player_Ball : MonoBehaviour {
     public bool isDead = false;
     public GameObject self;
     public Text scoreBoard;
-    public float score;
+    public int score;
+    [SerializeField] private int m_increment = 1;
     public GameObject spawnNet;
 
 	// Use this for initialization
@@ -23,7 +24,7 @@ public class Player_Ball : MonoBehaviour {
     {
         if (isDead == false)
         {
-            score += 0.1f;
+            score += m_increment;
             
 
         }
@@ -32,8 +33,7 @@ public class Player_Ball : MonoBehaviour {
             spawnNet.SetActive(false);
             SceneManager.LoadScene(0);
         }
-        float scoreText = Mathf.Round(score * 20);
-        scoreBoard.text = ("" + scoreText + "m");
+        scoreBoard.text = ("" + score + "m");
 	}
 
     void OnTriggerEnter(Collider collider)
