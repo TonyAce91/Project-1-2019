@@ -31,7 +31,8 @@ public class Analytic_And_Achievement_Tracker : MonoBehaviour {
         if (typeOf == "hitObstacle")
         {
             obstaclesHit[amount]++;
-
+            
+          
             
 
         }
