@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23005230069128996}
   - component: {fileID: 114831116074435546}
   m_Layer: 0
-  m_Name: Danger Cube
+  m_Name: Danger Cube 1
   m_TagString: Deadly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
