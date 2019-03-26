@@ -494,7 +494,7 @@ MonoBehaviour:
   backupDifficulty: 0
   obstacles:
   - {fileID: 1415655622175180, guid: 2ff8dad2aa62d544e83679d67d992604, type: 2}
-  - {fileID: 1591496326562770, guid: 5da939cb551efd24e9a3d594988b2be7, type: 2}
+  - {fileID: 1815454427033306, guid: 7ad00444e9796724084006529e214675, type: 2}
   obstacleChances: 
   spawners:
   - {fileID: 1751129716}
