@@ -246,9 +246,10 @@ GameObject:
   - component: {fileID: 215652728}
   - component: {fileID: 215652727}
   - component: {fileID: 215652726}
+  - component: {fileID: 215652730}
   m_Layer: 0
   m_Name: DDOL Analytic Tracker
-  m_TagString: Untagged
+  m_TagString: DDOLTracker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,6 +320,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &215652730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 215652725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c633e0d4510d3f5458fd68333e0c9888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeSpentPlaying: 0
+  savedBestDistance: 0
+  mostCommonObstacle: 0
+  savedTotalSparks: 0
 --- !u!1 &277281544
 GameObject:
   m_ObjectHideFlags: 0

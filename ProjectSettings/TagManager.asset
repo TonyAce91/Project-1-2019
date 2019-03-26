@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Deadly
   - Beat
+  - DDOLTracker
   layers:
   - Default
   - TransparentFX

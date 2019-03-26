@@ -12,11 +12,13 @@ public class Player_Ball : MonoBehaviour {
     public int score;
     [SerializeField] private int m_increment = 1;
     public GameObject spawnNet;
+    public GameObject DDOLTracker;
 
 	// Use this for initialization
 	void Start ()
     {
         self = gameObject;
+        DDOLTracker = GameObject.FindGameObjectWithTag("DDOLTracker");
 	}
 	
 	// Update is called once per frame
@@ -42,6 +44,9 @@ public class Player_Ball : MonoBehaviour {
         {
             Debug.Log("OW.");
             isDead = true;
+            int obType = collider.GetComponent<Danger_Cube>().analyticObstacleType;
+            DDOLTracker.GetComponent<Analytic_And_Achievement_Tracker>().RecordValues("hitObstacle", obType);
+            DDOLTracker.GetComponent<Analytic_And_Achievement_Tracker>().RecordValues("bestDistance", score);
         }
     }
 }

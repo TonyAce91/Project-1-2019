@@ -8,6 +8,7 @@ public class Danger_Cube : MonoBehaviour {
     public float moveSpeed;
     public float lifeSpan;
     public float life;
+    public int analyticObstacleType;
 
 	// Use this for initialization
 	void Start ()
