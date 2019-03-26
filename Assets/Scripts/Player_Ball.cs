@@ -13,16 +13,18 @@ public class Player_Ball : MonoBehaviour {
     [SerializeField] private int m_increment = 1;
     public GameObject spawnNet;
     public GameObject DDOLTracker;
+    private ScoringSystem m_scoringSystem = null;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         self = gameObject;
         DDOLTracker = GameObject.FindGameObjectWithTag("DDOLTracker");
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate ()
+        m_scoringSystem = FindObjectOfType<ScoringSystem>();
+    }
+
+    // Update is called once per frame
+    void FixedUpdate ()
     {
         if (isDead == false)
         {
@@ -33,7 +35,10 @@ public class Player_Ball : MonoBehaviour {
         if (isDead == true)
         {
             spawnNet.SetActive(false);
-            SceneManager.LoadScene(0);
+            if (m_scoringSystem)
+                m_scoringSystem.CheckScore(score);
+            else
+                SceneManager.LoadScene(0);
         }
         scoreBoard.text = ("" + score + "m");
 	}
