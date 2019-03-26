@@ -55,3 +55,12 @@ MonoBehaviour:
   self: {fileID: 0}
   spawnerOn: 0
   spawnChance: 25
+  difficultyIncrementer: 0
+  difficultyOn: 0
+  backupDifficulty: 0
+  obstacles: []
+  obstacleChances: 
+  spawners: []
+  BeatMode: 0
+  inBeat: 0
+  counter: 0
