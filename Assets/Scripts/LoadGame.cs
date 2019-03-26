@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour {
 
-
+    public int whichScene;
 
 	// Use this for initialization
 	void Start ()
@@ -15,7 +15,7 @@ public class LoadGame : MonoBehaviour {
 	
     public void LoadTheGame ()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(whichScene);
     }
 
 	// Update is called once per frame
