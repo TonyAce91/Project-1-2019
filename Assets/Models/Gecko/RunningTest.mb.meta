@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: c1c7d6b368ab8a74c96f0e73297bc58b
-timeCreated: 1553649664
+guid: f612f9a8b3b0fe8449a132566bb73636
+timeCreated: 1553667222
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -11,29 +11,67 @@ ModelImporter:
     100006: Bone.002
     100008: Bone.003
     100010: Bone.004
-    100012: Bone.006
-    100014: Bone.007
-    100016: Bone.008
-    100018: Bone.009
-    100020: FireFly
-    100022: //RootNode
+    100012: Bone.005
+    100014: Bone.006
+    100016: Bone.007
+    100018: Bone.008
+    100020: Bone.009
+    100022: Bone.010
+    100024: Bone.011
+    100026: Bone.012
+    100028: Bone.013
+    100030: Bone.014
+    100032: Bone.015
+    100034: Bone.016
+    100036: Bone.017
+    100038: Bone.018
+    100040: Bone.019
+    100042: Bone.020
+    100044: Bone.021
+    100046: Bone.022
+    100048: Bone.023
+    100050: Bone.024
+    100052: Bone.025
+    100054: Bone.026
+    100056: Bone.027
+    100058: Gecko
+    100060: //RootNode
     400000: Armature
     400002: Bone
     400004: Bone.001
     400006: Bone.002
     400008: Bone.003
     400010: Bone.004
-    400012: Bone.006
-    400014: Bone.007
-    400016: Bone.008
-    400018: Bone.009
-    400020: FireFly
-    400022: //RootNode
+    400012: Bone.005
+    400014: Bone.006
+    400016: Bone.007
+    400018: Bone.008
+    400020: Bone.009
+    400022: Bone.010
+    400024: Bone.011
+    400026: Bone.012
+    400028: Bone.013
+    400030: Bone.014
+    400032: Bone.015
+    400034: Bone.016
+    400036: Bone.017
+    400038: Bone.018
+    400040: Bone.019
+    400042: Bone.020
+    400044: Bone.021
+    400046: Bone.022
+    400048: Bone.023
+    400050: Bone.024
+    400052: Bone.025
+    400054: Bone.026
+    400056: Bone.027
+    400058: Gecko
+    400060: //RootNode
     2100000: lambert2
-    4300000: FireFly
+    4300000: Gecko
     7400000: Take 001
     9500000: //RootNode
-    13700000: FireFly
+    13700000: Gecko
   externalObjects: {}
   materials:
     importMaterials: 1
