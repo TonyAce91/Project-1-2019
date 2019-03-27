@@ -374,3 +374,4 @@ MonoBehaviour:
   moveSpeed: 1
   lifeSpan: 200
   life: 0
+  analyticObstacleType: 1

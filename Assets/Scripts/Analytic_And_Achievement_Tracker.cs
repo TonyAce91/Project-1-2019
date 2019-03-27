@@ -8,11 +8,16 @@ public class Analytic_And_Achievement_Tracker : MonoBehaviour {
     public int savedBestDistance;
     public int mostCommonObstacle;
     public int savedTotalSparks;
-    int[] obstaclesHit;
+    public int[] obstaclesHit;
 
 	// Use this for initialization
 	void Start ()
     {
+        //GameObject[] objs = GameObject.FindGameObjectsWithTag("DDOLTracker");
+        //if (objs.Length > 1)
+        //{
+        //    Destroy(objs[1]);
+        //}
         DontDestroyOnLoad(this.gameObject);
 	}
 	
