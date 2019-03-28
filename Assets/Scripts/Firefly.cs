@@ -11,6 +11,12 @@ public class Firefly : MonoBehaviour {
     int currentChance;
     Vector3 newPosition;
     public float moveSpeed;
+    public GameObject sparkDrop;
+    public int sparkChance;
+    public bool sparksOn;
+    int counter;
+    public GameObject tunnel;
+
     
 
 	// Use this for initialization
@@ -37,6 +43,19 @@ public class Firefly : MonoBehaviour {
                 
         }
         transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, moveSpeed);
+        if (sparksOn == true)
+        {
+            counter++;
+            if (counter > sparkChance)
+            {
+                Vector3 sparkTransform = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z);
+                
+                GameObject spark = Instantiate(sparkDrop, sparkTransform, sparkDrop.transform.rotation, tunnel.transform);
+                
+                counter = 0;
+            }
+        }
+        
     }
     void OnTriggerEnter(Collider collider)
     {

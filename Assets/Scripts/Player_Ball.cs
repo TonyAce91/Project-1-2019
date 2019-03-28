@@ -53,5 +53,11 @@ public class Player_Ball : MonoBehaviour {
             DDOLTracker.GetComponent<Analytic_And_Achievement_Tracker>().RecordValues("hitObstacle", obType);
             DDOLTracker.GetComponent<Analytic_And_Achievement_Tracker>().RecordValues("bestDistance", score);
         }
+        if (collider.gameObject.tag == ("Spark"))
+        {
+            Debug.Log("NOM");
+            Destroy(collider);
+            
+        }
     }
 }
