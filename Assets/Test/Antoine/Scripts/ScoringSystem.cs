@@ -110,6 +110,11 @@ public class ScoringSystem : MonoBehaviour {
 
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
+
     private void OnDisable()
     {
         Debug.Log("Quitting application");
