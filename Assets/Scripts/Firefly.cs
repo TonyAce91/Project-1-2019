@@ -38,4 +38,12 @@ public class Firefly : MonoBehaviour {
         }
         transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, moveSpeed);
     }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.gameObject.tag == ("Deadly"))
+        {
+            currentChance = Random.Range(0, m_positioningObjects.Count);
+            newPosition = m_positioningObjects[currentChance].transform.position;
+        }
+    }
 }
