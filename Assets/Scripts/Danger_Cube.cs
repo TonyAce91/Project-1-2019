@@ -2,27 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ObstacleType
+{
+    Pipe1,
+    Pipe2,
+    SewerGrate,
+    TreeHollow,
+    SpiderWeb,
+    Branch,
+    Crystal
+}
+
+
 public class Danger_Cube : MonoBehaviour {
 
-    GameObject self;
     public float moveSpeed;
     public float lifeSpan;
     public float life;
-    public int analyticObstacleType;
+    public ObstacleType m_obstacleType;
 
 	// Use this for initialization
 	void Start ()
     {
-        self = gameObject;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        float selfX = self.transform.position.x;
-        float selfZ = self.transform.position.z;
-        float selfY = self.transform.position.y;
-        self.transform.position = new Vector3(selfX, selfY + moveSpeed, selfZ);
+        transform.position += new Vector3(0, moveSpeed, 0);
         life++;
         if (life > lifeSpan)
         {

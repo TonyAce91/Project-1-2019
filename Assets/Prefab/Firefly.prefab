@@ -517,7 +517,7 @@ MeshCollider:
   m_GameObject: {fileID: 1180034640748250}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Convex: 0
   m_CookingOptions: 14
@@ -567,6 +567,10 @@ MonoBehaviour:
   m_positioningObjects: []
   moveChance: 50
   moveSpeed: 0.2
+  sparkDrop: {fileID: 0}
+  sparkChance: 0
+  sparksOn: 0
+  tunnel: {fileID: 0}
 --- !u!135 &135431532555121824
 SphereCollider:
   m_ObjectHideFlags: 1

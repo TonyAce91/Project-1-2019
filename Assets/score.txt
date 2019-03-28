@@ -1,1 +1,1 @@
-{"scoreList":[{"name":"2080 ABC","score":2080},{"name":"375 ABC","score":375},{"name":"150 ABC","score":150},{"name":"134 ABC","score":134},{"name":"","score":0}]}
+{"scoreList":[{"name":"2080 ABC","score":2080},{"name":"399","score":399},{"name":"375 ABC","score":375},{"name":"150 ABC","score":150},{"name":"134 ABC","score":134}]}

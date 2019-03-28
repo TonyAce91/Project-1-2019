@@ -12,14 +12,15 @@ public class Player_Ball : MonoBehaviour {
     public int score;
     [SerializeField] private int m_increment = 1;
     public GameObject spawnNet;
-    public GameObject DDOLTracker;
+    private AnalyticsAndAchievements m_analytics = null;
     private ScoringSystem m_scoringSystem = null;
+    private int m_cumulativeSparks = 0;
 
     // Use this for initialization
     void Start ()
     {
         self = gameObject;
-        DDOLTracker = GameObject.FindGameObjectWithTag("DDOLTracker");
+        m_analytics = FindObjectOfType<AnalyticsAndAchievements>();
         m_scoringSystem = FindObjectOfType<ScoringSystem>();
     }
 
@@ -49,15 +50,16 @@ public class Player_Ball : MonoBehaviour {
         {
             Debug.Log("OW.");
             isDead = true;
-            int obType = collider.GetComponent<Danger_Cube>().analyticObstacleType;
-            DDOLTracker.GetComponent<Analytic_And_Achievement_Tracker>().RecordValues("hitObstacle", obType);
-            DDOLTracker.GetComponent<Analytic_And_Achievement_Tracker>().RecordValues("bestDistance", score);
+            m_analytics.UpdateAnalytics(collider.GetComponent<Danger_Cube>().m_obstacleType, score, m_cumulativeSparks, Time.timeSinceLevelLoad);
         }
+
         if (collider.gameObject.tag == ("Spark"))
         {
             Debug.Log("NOM");
-            Destroy(collider);
-            
+            Destroy(collider.gameObject);
+            m_cumulativeSparks++;
         }
     }
 }
+
+// Need to turn sparks into object pooling
