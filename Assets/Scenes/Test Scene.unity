@@ -306,6 +306,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.99999976
       objectReference: {fileID: 0}
+    - target: {fileID: 114170775264570742, guid: eb08d05f43ac66149821b5bd08c8072a,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb08d05f43ac66149821b5bd08c8072a, type: 2}
   m_IsPrefabParent: 0
@@ -659,6 +664,7 @@ MonoBehaviour:
   obstacles:
   - {fileID: 1415655622175180, guid: 2ff8dad2aa62d544e83679d67d992604, type: 2}
   - {fileID: 1815454427033306, guid: 7ad00444e9796724084006529e214675, type: 2}
+  - {fileID: 1123326636500044, guid: caee59918d3f61346b37cd5ac5086640, type: 2}
   obstacleChances: 
   spawners:
   - {fileID: 1751129716}
@@ -824,6 +830,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 0.99999976
       objectReference: {fileID: 0}
+    - target: {fileID: 114170775264570742, guid: eb08d05f43ac66149821b5bd08c8072a,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb08d05f43ac66149821b5bd08c8072a, type: 2}
   m_IsPrefabParent: 0
@@ -971,6 +982,11 @@ Prefab:
     - target: {fileID: 4784626360604274, guid: eb08d05f43ac66149821b5bd08c8072a, type: 2}
       propertyPath: m_LocalScale.z
       value: 0.99999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 114170775264570742, guid: eb08d05f43ac66149821b5bd08c8072a,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb08d05f43ac66149821b5bd08c8072a, type: 2}
@@ -1693,6 +1709,11 @@ Prefab:
     - target: {fileID: 1988714591718872, guid: eb08d05f43ac66149821b5bd08c8072a, type: 2}
       propertyPath: m_Name
       value: Pipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 114170775264570742, guid: eb08d05f43ac66149821b5bd08c8072a,
+        type: 2}
+      propertyPath: moveSpeed
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: eb08d05f43ac66149821b5bd08c8072a, type: 2}

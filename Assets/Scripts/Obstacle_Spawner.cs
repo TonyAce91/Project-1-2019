@@ -76,22 +76,22 @@ public class Obstacle_Spawner : MonoBehaviour {
                 if (willItSpawn >= spawnChance)
                 {
                     //Picks which obstacle to spawn
-                    int whichOne = Random.Range(1, 10);
+                    int whichOne = Random.Range(1, 20);
                     int whichSpawner = Random.Range(0, 7);
-                    if (whichOne <= 7)
+                    if (whichOne <= 14)
                     {
                         Instantiate(obstacles[0], spawners[whichSpawner].transform);
 
                     }
-                    if (whichOne > 7 && whichOne < 10)
+                    if (whichOne > 14 && whichOne < 19)
                     {
                         Instantiate(obstacles[1], spawners[whichSpawner].transform);
                     }
-                    if (whichOne >= 9)
+                    if (whichOne >= 19)
                     {
-                        if (difficultyIncrementer > 3)
+                        if (difficultyIncrementer > 1.5)
                         {
-                            SpiralSpawn();
+                            Instantiate(obstacles[2], spawners[whichSpawner].transform);
                         }
                         
                     }

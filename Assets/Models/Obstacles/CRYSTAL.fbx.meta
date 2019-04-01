@@ -1,52 +1,16 @@
 fileFormatVersion: 2
-guid: 452910aed16c9df4b849c4baa08651b7
-timeCreated: 1553574972
+guid: fc0cb33b80dba26468ef0f0fca8ed55a
+timeCreated: 1554073435
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: group2
-    100002: pCube1
-    100004: pCube3
-    100006: //RootNode
-    100008: polySurface1
-    100010: polySurface1 1
-    100012: polySurface3
-    100014: polySurface7
-    100016: polySurface8
-    100018: polySurface8 1
-    100020: polySurface9
-    100022: transform10
-    100024: transform11
-    100026: transform12
-    100028: transform5
-    100030: transform6
-    100032: transform7
-    100034: transform8
-    100036: transform9
-    400000: group2
-    400002: pCube1
-    400004: pCube3
-    400006: //RootNode
-    400008: polySurface1
-    400010: polySurface1 1
-    400012: polySurface3
-    400014: polySurface7
-    400016: polySurface8
-    400018: polySurface8 1
-    400020: polySurface9
-    400022: transform10
-    400024: transform11
-    400026: transform12
-    400028: transform5
-    400030: transform6
-    400032: transform7
-    400034: transform8
-    400036: transform9
-    2100000: lambert2
-    2300000: polySurface8
-    3300000: polySurface8
-    4300000: polySurface8
+    100000: //RootNode
+    400000: //RootNode
+    2100000: lambert3
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: pCube13
     9500000: //RootNode
   externalObjects: {}
   materials:
@@ -78,7 +42,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 100
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
