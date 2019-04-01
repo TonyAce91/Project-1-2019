@@ -39,7 +39,7 @@ public class Firefly : MonoBehaviour {
         if (willItMove >= moveChance)
         {
             currentChance = Random.Range(0, m_positioningObjects.Count);
-            newPosition = m_positioningObjects[currentChance].transform.position;
+            newPosition = m_positioningObjects[currentChance].transform.localPosition;
                 
         }
         transform.localPosition = Vector3.Lerp(transform.localPosition, newPosition, moveSpeed);
