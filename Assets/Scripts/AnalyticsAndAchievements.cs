@@ -26,8 +26,6 @@ public class AnalyticsAndAchievements : MonoBehaviour {
         // Initialise Analytics
         foreach (string obstacleName in Enum.GetNames(typeof(ObstacleType)))
             obstacleAnalytics.Add(obstacleName, 0);
-
-        DontDestroyOnLoad(transform.parent.gameObject);
 	}
 	
 	// Update is called once per frame
