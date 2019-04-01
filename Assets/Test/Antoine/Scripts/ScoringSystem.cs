@@ -27,7 +27,10 @@ public class ScoringSystem : MonoBehaviour {
 
     private bool stopUpdate = false;
 
-    [SerializeField] private GameObject m_highscoreCanvas = null;
+    [SerializeField] private GameObject m_submissionCanvas = null;
+    [SerializeField] private GameObject m_highscoreContainer = null;
+    [SerializeField] private GameObject m_highscoreTemplate = null;
+
     public InputField nameField = null;
     private JsonWrapper wrapper = new JsonWrapper();
 
@@ -54,6 +57,7 @@ public class ScoringSystem : MonoBehaviour {
             }
             m_listOfScores.TrimExcess();
         }
+
     }
 
     // Update is called once per frame
@@ -70,7 +74,7 @@ public class ScoringSystem : MonoBehaviour {
         if (score > minimumThreshold)
         {
             m_score = score;
-            m_highscoreCanvas.SetActive(true);
+            m_submissionCanvas.SetActive(true);
             stopUpdate = true;
         }
     }
@@ -104,7 +108,7 @@ public class ScoringSystem : MonoBehaviour {
         }
 
         minimumThreshold = m_listOfScores[m_listOfScores.Count -1].score;
-        m_highscoreCanvas.SetActive(false);
+        m_submissionCanvas.SetActive(false);
         stopUpdate = false;
         SceneManager.LoadScene(0);
 
