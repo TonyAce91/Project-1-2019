@@ -8,6 +8,7 @@ public class ButtonAdapter : MonoBehaviour {
     Button m_button = null;
     Pipe_Rotation m_controlRotation = null;
     [SerializeField] private bool m_isLeft = true;
+    bool m_initialised = false;
 
 	// Use this for initialization
 	void Start () {
@@ -15,11 +16,17 @@ public class ButtonAdapter : MonoBehaviour {
         GameManager manager = FindObjectOfType<GameManager>();
 	}
 
-    private void OnEnable()
+    private void Update()
     {
-        m_controlRotation = FindObjectOfType<Pipe_Rotation>();
-        if (m_controlRotation != null)
-            ReferenceRotation(m_controlRotation);
+        if (m_initialised == false)
+        {
+            m_controlRotation = FindObjectOfType<Pipe_Rotation>();
+            if (m_controlRotation != null)
+            {
+                ReferenceRotation(m_controlRotation);
+                m_initialised = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -28,6 +35,7 @@ public class ButtonAdapter : MonoBehaviour {
             m_button.onClick.AddListener(rotationScript.LeftButton);
         else
             m_button.onClick.AddListener(rotationScript.RightButton);
+        Debug.Log("Reference Rotation called");
 
     }
 }

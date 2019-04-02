@@ -7,8 +7,8 @@ public class Pipe_Rotation : MonoBehaviour {
 
     GameObject self;
     public float rotateForce;
-    public bool isAndroid;
-    public bool touchOn;
+    public bool isAndroid = true;
+    public bool touchOn = false;
     public Button leftButton;
     public Button rightButton;
     //private List<ButtonAdapter> m_controlButtons = new List<ButtonAdapter>();
@@ -70,7 +70,7 @@ public class Pipe_Rotation : MonoBehaviour {
             //The version that actually works
             if (touchOn == false)
             {
-                self.transform.Rotate(0, Input.acceleration.x * rotateForce, 0);
+                transform.Rotate(0, Input.acceleration.x * rotateForce, 0);
 
             }
         }
@@ -81,13 +81,12 @@ public class Pipe_Rotation : MonoBehaviour {
     //For left-click and right-click, turns tunnel 1/8th. To be used for touch-screen
     public void LeftButton ()
     {
-        self.transform.Rotate(0, -22.5f, 0);
-        
+        transform.Rotate(0, -rotateForce * 2, 0);
     }
 
     public void RightButton ()
     {
-        self.transform.Rotate(0, 22.5f, 0);
+        transform.Rotate(0, rotateForce * 2, 0);
     }
 
 }
