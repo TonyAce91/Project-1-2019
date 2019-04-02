@@ -10,13 +10,13 @@ public class Pipe_Rotation : MonoBehaviour {
     public bool isAndroid;
     public bool touchOn;
     public Button leftButton;
-    public Button rightButton; 
+    public Button rightButton;
+    //private List<ButtonAdapter> m_controlButtons = new List<ButtonAdapter>();
 
 	// Use this for initialization
 	void Start ()
     {
         self = gameObject;
-        
     }
 	
 	// Update is called once per frame
@@ -42,22 +42,22 @@ public class Pipe_Rotation : MonoBehaviour {
             //Checks if using the accelerometer, and which "version". This one doesn't work.
             if (touchOn == true)
             {
-                if (Input.touchCount > 0)
-                {
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        Debug.Log("" + Input.mousePosition);
-                    }
-                    self.transform.Rotate(0, -rotateForce, 0);
-                    Touch touch = Input.GetTouch(0);
-                    Debug.Log("" + touch.position.x);
-                    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                    touchPosition.z = 0;
+                //if (Input.touchCount > 0)
+                //{
+                //    if (Input.GetMouseButtonDown(0))
+                //    {
+                //        Debug.Log("" + Input.mousePosition);
+                //    }
+                //    self.transform.Rotate(0, -rotateForce, 0);
+                //    Touch touch = Input.GetTouch(0);
+                //    Debug.Log("" + touch.position.x);
+                //    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                //    touchPosition.z = 0;
                     
 
 
                    
-                }
+                //}
                 //if (Input.acceleration.x > 0)
                 //{
                 //    self.transform.Rotate(0, -rotateForce, 0);

@@ -54,5 +54,7 @@ public class AnalyticsAndAchievements : MonoBehaviour {
             distanceAchieved.Invoke();
         if (collectedSparks > m_sparksAchievement)
             sparksAchieved.Invoke();
+
+        Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
     }
 }

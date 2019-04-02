@@ -24,12 +24,15 @@ public class ScoringSystem : MonoBehaviour {
     int m_score = 0;
     int maxAmount = 5;
     int minimumThreshold = 0;
+    float templateHeight = 20;
 
     private bool stopUpdate = false;
 
     [SerializeField] private GameObject m_submissionCanvas = null;
     [SerializeField] private GameObject m_highscoreContainer = null;
-    [SerializeField] private GameObject m_highscoreTemplate = null;
+    [SerializeField] private ScoreEntryScript m_scorePrefab = null;
+
+    private List<ScoreEntryScript> m_scoreUIList = new List<ScoreEntryScript>();
 
     public InputField nameField = null;
     private JsonWrapper wrapper = new JsonWrapper();
@@ -58,6 +61,22 @@ public class ScoringSystem : MonoBehaviour {
             m_listOfScores.TrimExcess();
         }
 
+        m_scorePrefab.gameObject.SetActive(false);
+
+        int iteration = 0;
+        foreach (ScoreData scoreData in m_listOfScores)
+        {
+            ScoreEntryScript scoreEntry = Instantiate(m_scorePrefab, m_highscoreContainer.transform);
+            RectTransform rectTrans = scoreEntry.transform.GetComponent<RectTransform>();
+            rectTrans.anchoredPosition = new Vector2(0, -templateHeight * iteration);
+            rectTrans.gameObject.SetActive(true);
+
+            // Set the scores from list into UI
+            scoreEntry.nameText.text = scoreData.name;
+            scoreEntry.scoreText.text = scoreData.score.ToString();
+            m_scoreUIList.Add(scoreEntry);
+            iteration++;
+        }
     }
 
     // Update is called once per frame
@@ -105,6 +124,13 @@ public class ScoringSystem : MonoBehaviour {
         if (m_listOfScores.Count > maxAmount)
         {
             m_listOfScores.RemoveAt(m_listOfScores.Count - 1);
+        }
+
+        // Updates UI list
+        for (int i = 0; i < m_scoreUIList.Count; i++)
+        {
+            m_scoreUIList[i].nameText.text = m_listOfScores[i].name;
+            m_scoreUIList[i].scoreText.text = m_listOfScores[i].score.ToString();
         }
 
         minimumThreshold = m_listOfScores[m_listOfScores.Count -1].score;
