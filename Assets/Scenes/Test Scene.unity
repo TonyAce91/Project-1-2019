@@ -457,6 +457,10 @@ Prefab:
       propertyPath: spawnNet
       value: 
       objectReference: {fileID: 634150287}
+    - target: {fileID: 1911937618682940, guid: bc412ac224bbf96438269d54d4800ef1, type: 2}
+      propertyPath: m_TagString
+      value: AudioPlayer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc412ac224bbf96438269d54d4800ef1, type: 2}
   m_IsPrefabParent: 0

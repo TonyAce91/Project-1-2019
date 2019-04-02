@@ -8,12 +8,22 @@ public class CollectSparks : MonoBehaviour
 {
     public AudioSource collectSound;
 
+    void Start()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("AudioPlayer");
+        collectSound = playerObject.GetComponent<AudioSource>();
+
+    }
 
     void OnTriggerEnter(Collider other)
     {
-        collectSound.Play();
-        ScoreSystem.theScore += 50;
-        Destroy(gameObject);
+       if (other.gameObject.tag == ("Player"))
+        {
+            collectSound.Play();
+            ScoreSystem.theScore += 50;
+            Destroy(gameObject);
+        }
+        
     }
 }
 
