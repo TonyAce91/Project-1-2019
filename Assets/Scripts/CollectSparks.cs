@@ -20,7 +20,7 @@ public class CollectSparks : MonoBehaviour
        if (other.gameObject.tag == ("Player"))
         {
             collectSound.Play();
-            ScoreSystem.theScore += 50;
+            ScoreSystem.theScore += 1;
             Destroy(gameObject);
         }
         
