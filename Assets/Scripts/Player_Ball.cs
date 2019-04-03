@@ -15,6 +15,9 @@ public class Player_Ball : MonoBehaviour {
     private AnalyticsAndAchievements m_analytics = null;
     private ScoringSystem m_scoringSystem = null;
     private int m_cumulativeSparks = 0;
+    int powerAmount;
+    public Slider powerBar;
+    public GameObject lizardGlow;
 
     // Use this for initialization
     void Start ()
@@ -42,6 +45,7 @@ public class Player_Ball : MonoBehaviour {
                 SceneManager.LoadScene(0);
         }
         scoreBoard.text = ("" + score + "m");
+        powerBar.value = powerAmount;
 	}
 
     void OnTriggerEnter(Collider collider)
@@ -58,6 +62,11 @@ public class Player_Ball : MonoBehaviour {
             Debug.Log("NOM");
             Destroy(collider.gameObject);
             m_cumulativeSparks++;
+            if (powerAmount < 50)
+            {
+                powerAmount++;
+                lizardGlow.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
+            }
         }
     }
 }

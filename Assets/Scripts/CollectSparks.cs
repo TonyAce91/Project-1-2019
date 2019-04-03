@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class CollectSparks : MonoBehaviour
 {
     public AudioSource collectSound;
+    public GameObject sparkHit;
 
     void Start()
     {
@@ -21,7 +22,9 @@ public class CollectSparks : MonoBehaviour
         {
             collectSound.Play();
             ScoreSystem.theScore += 1;
+            Instantiate(sparkHit, new Vector3(other.transform.position.x, other.transform.position.y, other.transform.position.z), Quaternion.identity);
             Destroy(gameObject);
+
         }
         
     }
