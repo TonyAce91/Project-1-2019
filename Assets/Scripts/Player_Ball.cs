@@ -18,6 +18,8 @@ public class Player_Ball : MonoBehaviour {
     int powerAmount;
     public Slider powerBar;
     public GameObject lizardGlow;
+    public GameObject powerUp;
+    bool powered;
 
     // Use this for initialization
     void Start ()
@@ -46,15 +48,35 @@ public class Player_Ball : MonoBehaviour {
         }
         scoreBoard.text = ("" + score + "m");
         powerBar.value = powerAmount;
+        if (Input.GetKeyUp("space"))
+        {
+            if ((powerAmount >= 50) && (powered != true))
+            {
+                powerAmount = 0;
+                lizardGlow.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                powered = true;
+                powerUp.SetActive(true);
+            }
+        }
+
 	}
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == ("Deadly"))
         {
-            Debug.Log("OW.");
-            isDead = true;
-            m_analytics.UpdateAnalytics(collider.GetComponent<Danger_Cube>().m_obstacleType, score, m_cumulativeSparks, Time.timeSinceLevelLoad);
+            if (powered == false)
+            {
+                Debug.Log("OW.");
+                isDead = true;
+                m_analytics.UpdateAnalytics(collider.GetComponent<Danger_Cube>().m_obstacleType, score, m_cumulativeSparks, Time.timeSinceLevelLoad);
+            }
+            if (powered == true)
+            {
+                powered = false;
+                powerUp.SetActive(false);
+                Destroy(collider);
+            }
         }
 
         if (collider.gameObject.tag == ("Spark"))
