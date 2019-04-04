@@ -15,7 +15,9 @@ public class Player_Ball : MonoBehaviour {
     private AnalyticsAndAchievements m_analytics = null;
     private ScoringSystem m_scoringSystem = null;
     private int m_cumulativeSparks = 0;
-    int powerAmount;
+
+    //Powerup Stats
+    float powerAmount;
     public int powerMaxAmount;
     public Slider powerBar;
     public GameObject lizardGlow;
@@ -23,6 +25,7 @@ public class Player_Ball : MonoBehaviour {
     bool powered;
     public bool powerDrain;
     public int powerDrainCount;
+    public float powerDrainAmount;
     int counter;
 
     //Iframes for shield
@@ -42,10 +45,10 @@ public class Player_Ball : MonoBehaviour {
     void FixedUpdate ()
     {
         counter++;
-        if ((counter > powerDrainCount) && (powerAmount > 0) && (powerDrain == true))
+        if ((counter > powerDrainCount) && (powerAmount > 0) && (powerDrain == true) && (powerAmount < powerMaxAmount))
         {
             
-            powerAmount += -1;
+            powerAmount += -powerDrainAmount;
             counter = 0;
         }
         if (isDead == false)
@@ -112,7 +115,7 @@ public class Player_Ball : MonoBehaviour {
             m_cumulativeSparks++;
             if (powerAmount < powerMaxAmount)
             {
-                powerAmount++;
+                powerAmount += 1;
                 counter = 0;
                 lizardGlow.transform.localScale += new Vector3(0.05f, 0.05f, 0.05f);
             }
