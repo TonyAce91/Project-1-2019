@@ -20,6 +20,8 @@ public class Player_Ball : MonoBehaviour {
     public GameObject deathScreenUI;
     public GameObject playerModel;
     public GameObject deathParticles;
+    public GameObject firefly;
+    
 
     //Powerup Stats
     float powerAmount;
@@ -55,21 +57,42 @@ public class Player_Ball : MonoBehaviour {
     // Update is called once per frame
     void FixedUpdate ()
     {
-        counter++;
-        if ((counter > powerDrainCount) && (powerAmount > 0) && (powerDrain == true) && (powerAmount < powerMaxAmount))
-        {
-            
-            powerAmount += -powerDrainAmount;
-            counter = 0;
-        }
+        
         if (isDead == false)
         {
             score += m_increment;
-            
+            counter++;
+            if ((counter > powerDrainCount) && (powerAmount > 0) && (powerDrain == true) && (powerAmount < powerMaxAmount))
+            {
 
+                powerAmount += -powerDrainAmount;
+                counter = 0;
+            }
+            powerBar.value = powerAmount;
+            if (Input.GetKeyUp("space"))
+            {
+                if ((powerAmount >= powerMaxAmount) && (powered != true))
+                {
+                    powerAmount = 0;
+                    lizardGlow.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+                    powered = true;
+                    powerUp.SetActive(true);
+                }
+            }
+            if ((invincible == true) && (invincibleCounter < invincibleTimeLimit))
+            {
+                invincibleCounter++;
+            }
+            if (invincibleCounter >= invincibleTimeLimit)
+            {
+                invincible = false;
+                invincibleCounter = 0;
+            }
         }
         if (isDead == true)
         {
+            firefly.SetActive(false);
+            lizardGlow.SetActive(false);
             spawnNet.SetActive(false);
             if (m_scoringSystem)
                 m_scoringSystem.CheckScore(score);
@@ -80,32 +103,13 @@ public class Player_Ball : MonoBehaviour {
             //SceneManager.LoadScene(0);
         }
         scoreBoard.text = ("" + score + "m");
-        powerBar.value = powerAmount;
-        if (Input.GetKeyUp("space"))
-        {
-            if ((powerAmount >= powerMaxAmount) && (powered != true))
-            {
-                powerAmount = 0;
-                lizardGlow.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
-                powered = true;
-                powerUp.SetActive(true);
-            }
-        }
-        if ((invincible == true) && (invincibleCounter < invincibleTimeLimit))
-        {
-            invincibleCounter++;
-        }
-        if (invincibleCounter >= invincibleTimeLimit)
-        {
-            invincible = false;
-            invincibleCounter = 0;
-        }
+        
 
 	}
 
     void OnTriggerEnter(Collider collider)
     {
-        if ((collider.gameObject.tag == ("Deadly")) && (invincible != true))
+        if ((collider.gameObject.tag == ("Deadly")) && (invincible != true) && (isDead == false))
         {
             if (powered == false)
             {
@@ -122,7 +126,7 @@ public class Player_Ball : MonoBehaviour {
             }
         }
 
-        if (collider.gameObject.tag == ("Spark"))
+        if ((collider.gameObject.tag == ("Spark")) && (isDead == false))
         {
             Debug.Log("NOM");
             Destroy(collider.gameObject);
