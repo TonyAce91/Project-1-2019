@@ -16,6 +16,11 @@ public class Player_Ball : MonoBehaviour {
     private ScoringSystem m_scoringSystem = null;
     private int m_cumulativeSparks = 0;
 
+    //Stuff needed for Death Sequence
+    public GameObject deathScreenUI;
+    public GameObject playerModel;
+    public GameObject deathParticles;
+
     //Powerup Stats
     float powerAmount;
     public int powerMaxAmount;
@@ -34,11 +39,17 @@ public class Player_Ball : MonoBehaviour {
     public int invincibleTimeLimit;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
         self = gameObject;
         m_analytics = FindObjectOfType<AnalyticsAndAchievements>();
         m_scoringSystem = FindObjectOfType<ScoringSystem>();
+        
+    }
+
+    public void LoadScene(int sceneNumber)
+    {
+        SceneManager.LoadScene(sceneNumber);
     }
 
     // Update is called once per frame
@@ -63,7 +74,10 @@ public class Player_Ball : MonoBehaviour {
             if (m_scoringSystem)
                 m_scoringSystem.CheckScore(score);
             else
-                SceneManager.LoadScene(0);
+                deathScreenUI.SetActive(true);
+                playerModel.SetActive(false);
+            deathParticles.SetActive(true);
+            //SceneManager.LoadScene(0);
         }
         scoreBoard.text = ("" + score + "m");
         powerBar.value = powerAmount;
