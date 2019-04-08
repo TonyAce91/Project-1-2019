@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Events;
+using UnityEngine.Analytics;
 
 public class AnalyticsAndAchievements : MonoBehaviour {
 
@@ -21,11 +22,23 @@ public class AnalyticsAndAchievements : MonoBehaviour {
     public UnityEvent sparksAchieved;
     public UnityEvent timeAchieved;
 
-	// Use this for initialization
-	void Start () {
+
+    // Unity Analytics
+    private const string eventName = "CustomEvent";
+    private Dictionary<string, object> parameters = new Dictionary<string, object>();
+    [SerializeField] private GameObject touchButtons = null;
+
+    // Use this for initialization
+    void Start () {
         // Initialise Analytics
         foreach (string obstacleName in Enum.GetNames(typeof(ObstacleType)))
             obstacleAnalytics.Add(obstacleName, 0);
+
+        // Initialise Unity Analytics
+        parameters.Add("Obstacle Type", "None");
+        parameters.Add("Distance Reached", 0);
+        parameters.Add("Controls Used", "None");
+        parameters.Add("Sparks Collected", 0);
 	}
 	
 	// Update is called once per frame
@@ -55,6 +68,20 @@ public class AnalyticsAndAchievements : MonoBehaviour {
         if (collectedSparks > m_sparksAchievement)
             sparksAchieved.Invoke();
 
-        Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
+        parameters["Obstacle Type"] = obstacleType.ToString();
+        parameters["Distance Reached"] = distance;
+        if (touchButtons.activeSelf)
+            parameters["Controls Used"] = "Buttons";
+        else
+            parameters["Controls Used"] = "Tilt";
+        parameters["Sparks Collected"] = collectedSparks;
+
+        // Send Event
+        AnalyticsResult result = AnalyticsEvent.Custom(eventName, parameters);
+
+        if (result == AnalyticsResult.Ok)
+            Debug.Log("Analytics sent");
+        else
+            Debug.Log("Analytics not sent");
     }
 }

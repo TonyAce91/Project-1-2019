@@ -5,6 +5,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.IO;
+using UnityEngine.Events;
 
 public class ScoringSystem : MonoBehaviour {
 
@@ -31,6 +32,9 @@ public class ScoringSystem : MonoBehaviour {
     [SerializeField] private GameObject m_submissionCanvas = null;
     [SerializeField] private GameObject m_highscoreContainer = null;
     [SerializeField] private ScoreEntryScript m_scorePrefab = null;
+    [SerializeField] private GameObject m_highscoreBoard = null;
+
+    [HideInInspector] public bool sendAnalytics = false;
 
     private List<ScoreEntryScript> m_scoreUIList = new List<ScoreEntryScript>();
 
@@ -38,6 +42,9 @@ public class ScoringSystem : MonoBehaviour {
     private JsonWrapper wrapper = new JsonWrapper();
 
     private List<ScoreData> m_listOfScores = new List<ScoreData>();
+
+    // Events
+    public UnityEvent onGameOver;
 
     // Use this for initialization
     void Start () {
@@ -49,6 +56,7 @@ public class ScoringSystem : MonoBehaviour {
             string scoreString = File.ReadAllText(Application.dataPath + "/score.txt");
             JsonWrapper wrapper = JsonUtility.FromJson<JsonWrapper>(scoreString);
             m_listOfScores = wrapper.scoreList;
+            minimumThreshold = m_listOfScores[m_listOfScores.Count - 1].score;
         }
         else
         {
@@ -87,6 +95,11 @@ public class ScoringSystem : MonoBehaviour {
             Time.timeScale = 1;
 	}
 
+    public void PauseGame(bool status = true)
+    {
+        stopUpdate = status;
+    }
+
     public void CheckScore(int score)
     {
         // Checks if there's new high score
@@ -95,6 +108,13 @@ public class ScoringSystem : MonoBehaviour {
             m_score = score;
             m_submissionCanvas.SetActive(true);
             stopUpdate = true;
+        }
+        else
+        {
+            if (m_highscoreBoard)
+                m_highscoreBoard.SetActive(true);
+            onGameOver.Invoke();
+            SceneManager.LoadScene(0);
         }
     }
     public void OnSubmit()
@@ -136,8 +156,13 @@ public class ScoringSystem : MonoBehaviour {
         minimumThreshold = m_listOfScores[m_listOfScores.Count -1].score;
         m_submissionCanvas.SetActive(false);
         stopUpdate = false;
+        onGameOver.Invoke();
         SceneManager.LoadScene(0);
+    }
 
+    public void OpenSurvey()
+    {
+        Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
     }
 
     public void Quit()
@@ -147,6 +172,7 @@ public class ScoringSystem : MonoBehaviour {
 
     private void OnDisable()
     {
+        Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
         Debug.Log("Quitting application");
         JsonWrapper wrapper = new JsonWrapper();
         wrapper.scoreList = m_listOfScores;

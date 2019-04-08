@@ -27,7 +27,7 @@ public class Danger_Cube : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate ()
     {
         transform.position += new Vector3(0, moveSpeed, 0);
         life++;
