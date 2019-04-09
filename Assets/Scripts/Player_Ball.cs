@@ -34,6 +34,7 @@ public class Player_Ball : MonoBehaviour {
     public int powerDrainCount;
     public float powerDrainAmount;
     int counter;
+    public GameObject abilityTouchButton;
 
     //Iframes for shield
     public int invincibleCounter;
@@ -54,12 +55,28 @@ public class Player_Ball : MonoBehaviour {
         SceneManager.LoadScene(sceneNumber);
     }
 
+    public void AbilityButton()
+    {
+        if ((powerAmount >= powerMaxAmount) && (powered != true))
+        {
+            powerAmount = 0;
+            lizardGlow.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+            powered = true;
+            powerUp.SetActive(true);
+            abilityTouchButton.SetActive(false);
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate ()
     {
         
         if (isDead == false)
         {
+            if (powerAmount >= powerMaxAmount)
+            {
+                abilityTouchButton.SetActive(true);
+            }
             score += m_increment;
             counter++;
             if ((counter > powerDrainCount) && (powerAmount > 0) && (powerDrain == true) && (powerAmount < powerMaxAmount))
@@ -69,7 +86,7 @@ public class Player_Ball : MonoBehaviour {
                 counter = 0;
             }
             powerBar.value = powerAmount;
-            if (Input.GetKeyUp("space"))
+            if (Input.GetKey("space"))
             {
                 if ((powerAmount >= powerMaxAmount) && (powered != true))
                 {
@@ -77,6 +94,7 @@ public class Player_Ball : MonoBehaviour {
                     lizardGlow.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     powered = true;
                     powerUp.SetActive(true);
+                    abilityTouchButton.SetActive(false);
                 }
             }
             if ((invincible == true) && (invincibleCounter < invincibleTimeLimit))
