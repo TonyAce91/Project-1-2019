@@ -178,6 +178,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 8.54, y: 1.9710001, z: -2.1360002}
+--- !u!114 &718593248 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114224940679525060, guid: ad658c4beecc813429565e7f6c02c495,
+    type: 2}
+  m_PrefabInternal: {fileID: 1993518952}
+  m_Script: {fileID: 11500000, guid: 28ad04b5418fd2a4f8a80c838b98ec40, type: 3}
 --- !u!1 &803631574
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +872,7 @@ Prefab:
     - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224518793943631604, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
@@ -981,6 +987,31 @@ Prefab:
     - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 718593248}
+    - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: PauseGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 114253169255559026, guid: ad658c4beecc813429565e7f6c02c495,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

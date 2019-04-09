@@ -102,6 +102,8 @@ public class ScoringSystem : MonoBehaviour {
 
     public void CheckScore(int score)
     {
+        onGameOver.Invoke();
+        
         // Checks if there's new high score
         if (score > minimumThreshold)
         {
@@ -113,7 +115,6 @@ public class ScoringSystem : MonoBehaviour {
         {
             if (m_highscoreBoard)
                 m_highscoreBoard.SetActive(true);
-            onGameOver.Invoke();
             SceneManager.LoadScene(0);
         }
     }
@@ -156,7 +157,6 @@ public class ScoringSystem : MonoBehaviour {
         minimumThreshold = m_listOfScores[m_listOfScores.Count -1].score;
         m_submissionCanvas.SetActive(false);
         stopUpdate = false;
-        onGameOver.Invoke();
         SceneManager.LoadScene(0);
     }
 
