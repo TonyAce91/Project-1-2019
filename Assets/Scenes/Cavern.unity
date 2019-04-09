@@ -1956,7 +1956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateForce: 6
-  isAndroid: 0
+  isAndroid: 1
   touchOn: 0
   leftButton: {fileID: 0}
   rightButton: {fileID: 0}

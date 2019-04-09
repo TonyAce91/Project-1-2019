@@ -18,24 +18,32 @@ public class ButtonAdapter : MonoBehaviour {
 
     private void Update()
     {
-        if (m_initialised == false)
+        if (m_controlRotation == null)
         {
             m_controlRotation = FindObjectOfType<Pipe_Rotation>();
-            if (m_controlRotation != null)
-            {
-                ReferenceRotation(m_controlRotation);
-                m_initialised = true;
-            }
         }
     }
 
-    // Update is called once per frame
-    void ReferenceRotation (Pipe_Rotation rotationScript) {
-        if (m_isLeft)
-            m_button.onClick.AddListener(rotationScript.LeftButton);
-        else
-            m_button.onClick.AddListener(rotationScript.RightButton);
-        Debug.Log("Reference Rotation called");
+    //// Update is called once per frame
+    //void ReferenceRotation (Pipe_Rotation rotationScript) {
+    //    if (m_isLeft)
+    //        m_button.onClick.AddListener(rotationScript.LeftButton);
+    //    else
+    //        m_button.onClick.AddListener(rotationScript.RightButton);
+    //    Debug.Log("Reference Rotation called");
 
+    //}
+
+    public void RotatePipe()
+    {
+        if (m_isLeft)
+            m_controlRotation.LeftButton();
+        else
+            m_controlRotation.RightButton();
+    }
+
+    public void GameRestart()
+    {
+        m_controlRotation = null;
     }
 }

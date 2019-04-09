@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Pipe_Rotation m_controlRotation = null;
     [SerializeField] private GameObject m_UIButtons = null;
 
-    bool tiltControl = true;
+    [HideInInspector] public bool tiltControl = true;
 
 	// Use this for initialization
 	void Start () {
@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
     {
         if (m_controlRotation == null)
             m_controlRotation = FindObjectOfType<Pipe_Rotation>();
+
+
         if (m_controllerToggle != null)
         {
             tiltControl = !tiltControl;

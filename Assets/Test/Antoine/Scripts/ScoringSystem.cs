@@ -103,7 +103,12 @@ public class ScoringSystem : MonoBehaviour {
     public void CheckScore(int score)
     {
         onGameOver.Invoke();
-        
+        ButtonAdapter[] buttons = FindObjectsOfType<ButtonAdapter>();
+        for(int i = 0; i < buttons.Length; i++)
+        {
+            buttons[i].GameRestart();
+        }
+
         // Checks if there's new high score
         if (score > minimumThreshold)
         {

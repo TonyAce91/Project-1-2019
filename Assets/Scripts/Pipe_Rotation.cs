@@ -11,12 +11,19 @@ public class Pipe_Rotation : MonoBehaviour {
     public bool touchOn = false;
     public Button leftButton;
     public Button rightButton;
+    private GameManager m_manager = null;
     //private List<ButtonAdapter> m_controlButtons = new List<ButtonAdapter>();
 
 	// Use this for initialization
 	void Start ()
     {
         self = gameObject;
+        m_manager = FindObjectOfType<GameManager>();
+        if (m_manager != null)
+        {
+            touchOn = !m_manager.tiltControl;
+            Debug.Log("Manager found");
+        }
     }
 	
 	// Update is called once per frame
@@ -24,8 +31,7 @@ public class Pipe_Rotation : MonoBehaviour {
     {
         //Using the left and right arrows to turn the whole tunnel
         
-        if (isAndroid == false)
-        {
+#if UNITY_EDITOR || UNITY_STANDALONE_WIN
             if (Input.GetKey(KeyCode.LeftArrow))
             {
                 self.transform.Rotate(0, -rotateForce, 0);
@@ -34,11 +40,10 @@ public class Pipe_Rotation : MonoBehaviour {
             {
                 self.transform.Rotate(0, rotateForce, 0);
             }
-            
-        }
+
+#endif
         //Checks if using Android control schemes
-        if (isAndroid == true)
-        {
+#if UNITY_IOS || UNITY_ANDROID
             //Checks if using the accelerometer, and which "version". This one doesn't work.
             if (touchOn == true)
             {
@@ -73,7 +78,7 @@ public class Pipe_Rotation : MonoBehaviour {
                 transform.Rotate(0, Input.acceleration.x * rotateForce, 0);
 
             }
-        }
+#endif
 
 
     }
