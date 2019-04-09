@@ -869,11 +869,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 224050519078911448, guid: 8f65aea51fc449c49b86b28dc4b867b4,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 224258666196970812, guid: 8f65aea51fc449c49b86b28dc4b867b4,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -969,10 +964,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 433866721}
-    - target: {fileID: 114963774277413154, guid: 8f65aea51fc449c49b86b28dc4b867b4,
+    - target: {fileID: 224050519078911448, guid: 8f65aea51fc449c49b86b28dc4b867b4,
         type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AbilityButton
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f65aea51fc449c49b86b28dc4b867b4, type: 2}

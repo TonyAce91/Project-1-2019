@@ -12,7 +12,7 @@ public class ScoreSystem : MonoBehaviour {
 
     void Update()
     {
-        ScoreText.GetComponent<Text>().text = "Score: " + theScore;
+        ScoreText.GetComponent<Text>().text = "Sparks: " + theScore;
     }
 
 }
