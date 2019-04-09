@@ -172,7 +172,7 @@ public class ScoringSystem : MonoBehaviour {
 
     private void OnDisable()
     {
-        Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
+        //Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
         Debug.Log("Quitting application");
         JsonWrapper wrapper = new JsonWrapper();
         wrapper.scoreList = m_listOfScores;

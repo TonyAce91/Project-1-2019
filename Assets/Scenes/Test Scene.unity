@@ -881,6 +881,7 @@ MonoBehaviour:
   backupDifficulty: 0
   obstacles:
   - {fileID: 1415655622175180, guid: 2ff8dad2aa62d544e83679d67d992604, type: 2}
+  - {fileID: 1415655622175180, guid: 2ff8dad2aa62d544e83679d67d992604, type: 2}
   - {fileID: 1815454427033306, guid: 7ad00444e9796724084006529e214675, type: 2}
   - {fileID: 1123326636500044, guid: caee59918d3f61346b37cd5ac5086640, type: 2}
   obstacleChances: 

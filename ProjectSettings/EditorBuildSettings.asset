@@ -12,8 +12,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Test Scene.unity
     guid: 0e525af5c9590b944a21de0b2cabe825
   - enabled: 1
-    path: Assets/Scenes/Cavern Level.unity
-    guid: f36d35a008dcfa145aeb82030a7e4104
+    path: Assets/Scenes/Cavern.unity
+    guid: 07ed4be06f25c68409ed020899fbeb80
   - enabled: 1
-    path: Assets/Scenes/Hollow Level.unity
-    guid: edf8279ec6212964e98b5601239c25a8
+    path: Assets/Scenes/Hollow.unity
+    guid: ec561ec5a332f244aa13d0ba5672ea26

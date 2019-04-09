@@ -78,20 +78,25 @@ public class Obstacle_Spawner : MonoBehaviour {
                     //Picks which obstacle to spawn
                     int whichOne = Random.Range(1, 20);
                     int whichSpawner = Random.Range(0, 7);
-                    if (whichOne <= 14)
+                    if (whichOne <= 8)
                     {
                         Instantiate(obstacles[0], spawners[whichSpawner].transform);
 
                     }
-                    if (whichOne > 14 && whichOne < 19)
+                    if (whichOne <= 15 && whichOne > 8)
                     {
                         Instantiate(obstacles[1], spawners[whichSpawner].transform);
+
+                    }
+                    if (whichOne > 15 && whichOne < 19)
+                    {
+                        Instantiate(obstacles[2], spawners[whichSpawner].transform);
                     }
                     if (whichOne >= 19)
                     {
-                        if (difficultyIncrementer > 1.5)
+                        if (difficultyIncrementer > 1.2)
                         {
-                            Instantiate(obstacles[2], spawners[whichSpawner].transform);
+                            Instantiate(obstacles[3], spawners[whichSpawner].transform);
                         }
                         
                     }
