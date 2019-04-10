@@ -21,6 +21,20 @@ public class GameManager : MonoBehaviour {
 		
 	}
 
+    public void ReinitialiseControl()
+    {
+        if (tiltControl)
+        {
+            m_controllerToggle.value = 1;
+            m_UIButtons.SetActive(false);
+        }
+        else
+        {
+            m_UIButtons.SetActive(true);
+            m_controllerToggle.value = 0;
+        }
+    }
+
     public void ControlToggle()
     {
         if (m_controlRotation == null)
