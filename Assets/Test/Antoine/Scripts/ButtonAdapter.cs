@@ -24,16 +24,6 @@ public class ButtonAdapter : MonoBehaviour {
         }
     }
 
-    //// Update is called once per frame
-    //void ReferenceRotation (Pipe_Rotation rotationScript) {
-    //    if (m_isLeft)
-    //        m_button.onClick.AddListener(rotationScript.LeftButton);
-    //    else
-    //        m_button.onClick.AddListener(rotationScript.RightButton);
-    //    Debug.Log("Reference Rotation called");
-
-    //}
-
     public void RotatePipe()
     {
         if (m_isLeft)

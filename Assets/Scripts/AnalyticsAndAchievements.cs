@@ -68,13 +68,16 @@ public class AnalyticsAndAchievements : MonoBehaviour {
         if (collectedSparks > m_sparksAchievement)
             sparksAchieved.Invoke();
 
+        // Add parameters to dictionary which will be sent to Unity Analytics
         parameters["Obstacle Type"] = obstacleType.ToString();
         parameters["Distance Reached"] = distance;
+        parameters["Sparks Collected"] = collectedSparks;
+
+        // Check for tilt or button control and add that parameter to dictionary
         if (touchButtons.activeSelf)
             parameters["Controls Used"] = "Buttons";
         else
             parameters["Controls Used"] = "Tilt";
-        parameters["Sparks Collected"] = collectedSparks;
 
         // Send Event
         AnalyticsResult result = AnalyticsEvent.Custom(eventName, parameters);

@@ -1185,7 +1185,7 @@ Prefab:
     - target: {fileID: 114175393184220940, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114175393184220940, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
@@ -1196,11 +1196,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 758137135}
+      objectReference: {fileID: 650248662}
     - target: {fileID: 114175393184220940, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: SetActive
+      value: ReinitialiseControl
       objectReference: {fileID: 0}
     - target: {fileID: 114175393184220940, guid: ad658c4beecc813429565e7f6c02c495,
         type: 2}
@@ -1261,6 +1261,10 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[5].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1817539669690494, guid: ad658c4beecc813429565e7f6c02c495, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad658c4beecc813429565e7f6c02c495, type: 2}

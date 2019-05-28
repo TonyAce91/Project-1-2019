@@ -177,7 +177,6 @@ public class ScoringSystem : MonoBehaviour {
 
     private void OnDisable()
     {
-        //Application.OpenURL("https://forms.gle/3XqZkWEFMNMh5rdB8");
         Debug.Log("Quitting application");
         JsonWrapper wrapper = new JsonWrapper();
         wrapper.scoreList = m_listOfScores;
@@ -185,34 +184,4 @@ public class ScoringSystem : MonoBehaviour {
         File.WriteAllText(Application.dataPath + "/score.txt", json);
     }
 }
-
-
-//if (score > m_listOfScores[m_listOfScores.Count -1].score)
-//{
-//    // Ask for name
-
-
-//    // Create new scoreData
-//    // Method kinda convoluted
-//    // Add to list
-//    // Sort list
-//    // Delete last entry if count > max
-
-//    //if (m_listOfScores.Count > maxAmount)
-//    //    m_listOfScores
-
-//    // Another method
-//    // Insert to list
-//    // Delete last entry if count > max
-//}
-
-//// lambda so good ^_^
-//m_listOfScores.Sort(delegate (ScoreData x, ScoreData y)
-//{
-//    if (x == null || y == null) return 0;
-//    else if (x.score < y.score) return -1;
-//    else if (x.score > y.score) return 1;
-//    else return 0;
-//}
-//);
 

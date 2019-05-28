@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Obstacle information for Unity Analytics
 public enum ObstacleType
 {
     Pipe1,

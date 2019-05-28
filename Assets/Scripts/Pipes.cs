@@ -21,11 +21,13 @@ public class Pipes : MonoBehaviour {
         float selfZ = self.transform.position.z;
         float selfY = self.transform.position.y;
         self.transform.position = new Vector3(selfX, selfY + moveSpeed, selfZ);
+        //transform.position += new Vector3(0, moveSpeed, 0);
         timer++;
         if (timer >= 300)
         {
             int number = timer;
             self.transform.position = new Vector3(selfX, selfY + -300, selfZ);
+            //transform.position += new Vector3(0, -300, 0);
             timer = 0;
         }
     }

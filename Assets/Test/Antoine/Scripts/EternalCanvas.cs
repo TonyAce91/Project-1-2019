@@ -8,6 +8,7 @@ public class EternalCanvas : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+        // Makes sure to have an instance of a canvas and don't destroy it when game loads
         if (m_canvas == null)
         {
             DontDestroyOnLoad(gameObject);

@@ -44,54 +44,25 @@ public class Pipe_Rotation : MonoBehaviour {
 #endif
         //Checks if using Android control schemes
 #if UNITY_IOS || UNITY_ANDROID
-            //Checks if using the accelerometer, and which "version". This one doesn't work.
-            if (touchOn == true)
-            {
-                //if (Input.touchCount > 0)
-                //{
-                //    if (Input.GetMouseButtonDown(0))
-                //    {
-                //        Debug.Log("" + Input.mousePosition);
-                //    }
-                //    self.transform.Rotate(0, -rotateForce, 0);
-                //    Touch touch = Input.GetTouch(0);
-                //    Debug.Log("" + touch.position.x);
-                //    Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-                //    touchPosition.z = 0;
-                    
-
-
-                   
-                //}
-                //if (Input.acceleration.x > 0)
-                //{
-                //    self.transform.Rotate(0, -rotateForce, 0);
-                //}
-                //if (Input.acceleration.x < 0)
-                //{
-                //    self.transform.Rotate(0, -rotateForce, 0);
-                //}
-            }
             //The version that actually works
             if (touchOn == false)
             {
                 transform.Rotate(0, Input.acceleration.x * rotateForce, 0);
-
             }
 #endif
-
-
     }
 
     //For left-click and right-click, turns tunnel 1/8th. To be used for touch-screen
     public void LeftButton ()
     {
-        transform.Rotate(0, -rotateForce * 2, 0);
+        if (Time.timeScale > 0)
+            transform.Rotate(0, -rotateForce * 2, 0);
     }
 
     public void RightButton ()
     {
-        transform.Rotate(0, rotateForce * 2, 0);
+        if (Time.timeScale > 0)
+            transform.Rotate(0, rotateForce * 2, 0);
     }
 
 }
